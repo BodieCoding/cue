@@ -1,0 +1,41 @@
+@baseUrl = http://localhost:8081
+
+### 1. The Idle State (Clears the screen)
+POST {{baseUrl}}/update
+Content-Type: application/json; charset=utf-8
+
+{
+    "emotion_state": "idle",
+    "dialogue": "Standing by.",
+    "html_payload": null
+}
+
+### 2. The Thinking State
+POST {{baseUrl}}/update
+Content-Type: application/json; charset=utf-8
+
+{
+    "emotion_state": "thinking",
+    "dialogue": "Querying the database, give me a second...",
+    "html_payload": null
+}
+
+### 3. The Happy State (With Rich HTML)
+POST {{baseUrl}}/update
+Content-Type: application/json; charset=utf-8
+
+{
+    "emotion_state": "speaking_happy",
+    "dialogue": "Data pipeline executed successfully!",
+    "html_payload": "<div style=\"font-family: sans-serif; padding: 10px; border-left: 4px solid #4ade80; background: #f0fdf4;\"><h4 style=\"margin:0; color:#166534;\">System Status: Optimal</h4><ul style=\"margin: 5px 0 0 0; color:#15803d; font-size: 14px;\"><li>Rows Processed: 1.2M</li><li>Latency: 42ms</li></ul></div>"
+}
+
+### 4. The Alert State (With Error HTML)
+POST {{baseUrl}}/update
+Content-Type: application/json; charset=utf-8
+
+{
+    "emotion_state": "alert",
+    "dialogue": "Whoa! Connection timeout detected.",
+    "html_payload": "<div style=\"font-family: sans-serif; padding: 10px; border-left: 4px solid #ef4444; background: #fef2f2;\"><strong style=\"color:#991b1b;\">Error 504: Gateway Timeout</strong><p style=\"margin: 5px 0 0 0; font-size: 13px; color:#7f1d1d;\">Target: db-cluster-primary</p></div>"
+}

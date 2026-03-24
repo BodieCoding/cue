@@ -1,0 +1,42 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Cue",
+      "command": "dotnet",
+      "type": "shell",
+      "args": ["build"],
+      "problemMatcher": ["$msCompile"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Run Cue",
+      "command": "dotnet",
+      "type": "shell",
+      "args": ["run"],
+      "problemMatcher": ["$msCompile"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Clean Cue",
+      "command": "dotnet",
+      "type": "shell",
+      "args": ["clean"],
+      "problemMatcher": ["$msCompile"]
+    }
+  ]
+}
